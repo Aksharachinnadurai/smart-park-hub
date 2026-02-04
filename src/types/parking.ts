@@ -31,14 +31,14 @@ export interface BookingFormData {
 export const PARKING_CONFIG = {
   S: {
     totalSlots: 100,
-    userSlots: 44,
+    userSlots: 40,
     employeeSlots: 55,
-    emergencySlots: 1,
+    emergencySlots: 5,
   },
   R: {
     totalSlots: 100,
-    userSlots: 49,
+    userSlots: 45,
     employeeSlots: 50,
-    emergencySlots: 1,
+    emergencySlots: 5,
   },
 } as const;
