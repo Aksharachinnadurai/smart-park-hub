@@ -10,6 +10,7 @@ interface ParkingLotProps {
 
 export const ParkingLot = ({ zone, slots, onSlotClick }: ParkingLotProps) => {
   const employeeSlots = slots.filter((s) => s.category === 'employee');
+  const emergencySlots = slots.filter((s) => s.category === 'emergency');
   const userSlots = slots.filter((s) => s.category === 'user');
 
   // Split into rows for better layout
@@ -23,7 +24,9 @@ export const ParkingLot = ({ zone, slots, onSlotClick }: ParkingLotProps) => {
 
   const slotsPerRow = 5;
   const employeeRows = createRows(employeeSlots, slotsPerRow);
-  const userRows = createRows(userSlots, slotsPerRow);
+  // Combine emergency slots with user slots for display (emergency first)
+  const userAndEmergencySlots = [...emergencySlots, ...userSlots];
+  const userRows = createRows(userAndEmergencySlots, slotsPerRow);
 
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -56,6 +59,10 @@ export const ParkingLot = ({ zone, slots, onSlotClick }: ParkingLotProps) => {
           <div className="flex items-center gap-1.5">
             <div className="w-4 h-4 rounded bg-slot-employee/20 border-2 border-slot-employee" />
             <span>Employee</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-4 h-4 rounded bg-slot-emergency/20 border-2 border-slot-emergency" />
+            <span>Emergency</span>
           </div>
         </div>
 

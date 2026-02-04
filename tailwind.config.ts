@@ -52,6 +52,7 @@ export default {
         "slot-reserved": "hsl(var(--slot-reserved))",
         "slot-occupied": "hsl(var(--slot-occupied))",
         "slot-employee": "hsl(var(--slot-employee))",
+        "slot-emergency": "hsl(var(--slot-emergency))",
         // Road colors
         "road-surface": "hsl(var(--road-surface))",
         "road-marking": "hsl(var(--road-marking))",

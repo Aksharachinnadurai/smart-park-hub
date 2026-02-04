@@ -21,6 +21,17 @@ const generateSlots = (zone: ParkingZone): ParkingSlot[] => {
     });
   }
 
+  // Generate emergency slots (1 per zone)
+  for (let i = 1; i <= config.emergencySlots; i++) {
+    slots.push({
+      id: `${zone}-EMG-${i}`,
+      slotNumber: i,
+      zone,
+      category: 'emergency',
+      status: 'available',
+    });
+  }
+
   // Generate user slots
   for (let i = 1; i <= config.userSlots; i++) {
     slots.push({

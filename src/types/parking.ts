@@ -2,7 +2,7 @@ export type ParkingZone = 'S' | 'R';
 
 export type SlotStatus = 'available' | 'reserved' | 'occupied';
 
-export type SlotCategory = 'user' | 'employee';
+export type SlotCategory = 'user' | 'employee' | 'emergency';
 
 export interface ParkingSlot {
   id: string;
@@ -31,12 +31,14 @@ export interface BookingFormData {
 export const PARKING_CONFIG = {
   S: {
     totalSlots: 100,
-    userSlots: 45,
+    userSlots: 44,
     employeeSlots: 55,
+    emergencySlots: 1,
   },
   R: {
     totalSlots: 100,
-    userSlots: 50,
+    userSlots: 49,
     employeeSlots: 50,
+    emergencySlots: 1,
   },
 } as const;
